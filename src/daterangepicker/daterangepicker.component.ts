@@ -957,17 +957,20 @@ export class DaterangepickerComponent implements OnInit {
             }
         }
 
+        let applyClicked = false;
+
         if (this.singleDatePicker) {
             this.setEndDate(this.startDate);
             this.updateElement();
             if (this.autoApply) {
                 this.clickApply();
+                applyClicked = true;
             }
         }
 
         this.updateView();
 
-        if (this.autoApply && this.startDate && this.endDate) {
+        if (!applyClicked && this.autoApply && this.startDate && this.endDate) {
           this.clickApply();
         }
 
